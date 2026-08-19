@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+.shelf-label {
+  font-family: var(--font-fraunces);
+  letter-spacing: 0.04em;
+}
+
+.price-tag {
+  font-family: var(--font-plex-mono);
+}
+
+/* La "mensola": una riga sottile con una tacca colorata,
+   come le etichette di prezzo su uno scaffale vero */
+.shelf-divider {
+  position: relative;
+  border-top: 1.5px solid #241b2b;
+}
+
+.shelf-divider::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -1.5px;
+  width: 56px;
+  height: 3px;
+  background: #d6336c;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+:focus-visible {
+  outline: 2px solid #d6336c;
+  outline-offset: 2px;
+}
