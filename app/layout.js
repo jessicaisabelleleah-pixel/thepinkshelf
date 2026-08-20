@@ -1,4 +1,5 @@
 import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -18,9 +19,38 @@ const plexMono = IBM_Plex_Mono({
   weight: ["400", "500"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thepinkshelf.vercel.app";
+const title = "ThePinkShelf — Offerte Amazon selezionate ogni giorno";
+const description =
+  "Uno scaffale digitale di offerte Amazon scelte a mano, aggiornate ogni giorno dal canale Telegram di ThePinkShelf.";
+
 export const metadata = {
-  title: "ThePinkShelf — Offerte selezionate",
-  description: "Le migliori offerte Amazon selezionate a mano, aggiornate ogni giorno dal canale Telegram.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: title,
+    template: "%s — ThePinkShelf",
+  },
+  description,
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "it_IT",
+    url: siteUrl,
+    siteName: "ThePinkShelf",
+    title,
+    description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -30,6 +60,7 @@ export default function RootLayout({ children }) {
         className={`${fraunces.variable} ${inter.variable} ${plexMono.variable} font-body bg-blush text-ink min-h-screen`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
