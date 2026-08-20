@@ -39,6 +39,9 @@ export const metadata = {
   alternates: {
     canonical: "/",
   },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
+  },
   openGraph: {
     type: "website",
     locale: "it_IT",
