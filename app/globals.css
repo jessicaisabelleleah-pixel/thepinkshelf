@@ -8,32 +8,44 @@
 
 body {
   -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(circle at 8% 12%, rgba(216, 199, 255, 0.35), transparent 40%),
+    radial-gradient(circle at 92% 8%, rgba(191, 240, 220, 0.35), transparent 38%),
+    radial-gradient(circle at 85% 85%, rgba(255, 143, 171, 0.18), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(255, 233, 168, 0.3), transparent 40%);
+  background-attachment: fixed;
 }
 
-.shelf-label {
-  font-family: var(--font-fraunces);
-  letter-spacing: 0.04em;
+.font-accent {
+  font-family: var(--font-accent);
 }
 
 .price-tag {
-  font-family: var(--font-plex-mono);
+  font-family: var(--font-display);
 }
 
-/* La "mensola": una riga sottile con una tacca colorata,
-   come le etichette di prezzo su uno scaffale vero */
+/* Il "festone": una riga puntinata soffice con una stellina,
+   al posto della classica riga divisoria dritta */
 .shelf-divider {
   position: relative;
-  border-top: 1.5px solid #241b2b;
+  border-top: 3px dotted rgba(255, 143, 171, 0.55);
 }
 
-.shelf-divider::after {
-  content: "";
+.shelf-divider::before {
+  content: "✦";
   position: absolute;
   left: 0;
-  top: -1.5px;
-  width: 56px;
-  height: 3px;
-  background: #d6336c;
+  top: -14px;
+  color: #ff8fab;
+  font-size: 1.1rem;
+}
+
+.cozy-shadow {
+  box-shadow: 0 10px 30px -12px rgba(216, 148, 180, 0.45);
+}
+
+.cozy-shadow:hover {
+  box-shadow: 0 16px 34px -10px rgba(216, 148, 180, 0.55);
 }
 
 .line-clamp-2 {
@@ -44,6 +56,7 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid #d6336c;
+  outline: 3px solid #ff8fab;
   outline-offset: 2px;
+  border-radius: 4px;
 }

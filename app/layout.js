@@ -1,22 +1,23 @@
-import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Baloo_2, Nunito, Caveat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
-const fraunces = Fraunces({
+const baloo = Baloo_2({
   subsets: ["latin"],
-  variable: "--font-fraunces",
-  weight: ["400", "500", "600"],
+  variable: "--font-display",
+  weight: ["500", "600", "700", "800"],
 });
 
-const inter = Inter({
+const nunito = Nunito({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-body",
+  weight: ["400", "600", "700"],
 });
 
-const plexMono = IBM_Plex_Mono({
+const caveat = Caveat({
   subsets: ["latin"],
-  variable: "--font-plex-mono",
-  weight: ["400", "500"],
+  variable: "--font-accent",
+  weight: ["500", "600"],
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://thepinkshelf.vercel.app";
@@ -57,7 +58,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="it">
       <body
-        className={`${fraunces.variable} ${inter.variable} ${plexMono.variable} font-body bg-blush text-ink min-h-screen`}
+        className={`${baloo.variable} ${nunito.variable} ${caveat.variable} font-body bg-blush text-ink min-h-screen`}
       >
         {children}
         <Analytics />
