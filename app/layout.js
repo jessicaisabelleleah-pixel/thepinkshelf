@@ -1,6 +1,5 @@
 import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import { Analytics } from '@vercel/analytics/react';
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -31,7 +30,6 @@ export default function RootLayout({ children }) {
         className={`${fraunces.variable} ${inter.variable} ${plexMono.variable} font-body bg-blush text-ink min-h-screen`}
       >
         {children}
-        <Analytics />
       </body>
     </html>
   );
